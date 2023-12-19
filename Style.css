@@ -1,0 +1,60 @@
+/* CSS code to emulate the dark mode theme of chat.openai.com */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #1e1e1e; /* Dark background color */
+    color: #d8d8d8; /* Light grey text color */
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #252525; /* Slightly lighter background */
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #ffffff; /* White heading color */
+  }
+  
+  form {
+    padding-top: 20px;
+  }
+  
+  label,
+  input[type="number"],
+  button {
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  input[type="number"] {
+    width: calc(100% - 12px);
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #333; /* Darker border for input */
+    background-color: #333; /* Darker input background */
+    color: #fff; /* White text color */
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #0f7ae5; /* Similar blue button */
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
