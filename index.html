@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="cgpaCalculator.js" defer></script>
     <link rel="stylesheet" href="Style.css">
+  <meta charset="UTF-8">
+  <title>CGPA Calculator</title>
+  <style>
+   
+  </style>
+  <script>
+    function calculateCGPA() {
+      const sgpaInputs = document.getElementsByClassName('sgpa');
+      let totalSGPA = 0;
+
+      for (let i = 0; i < sgpaInputs.length; i++) {
+        const sgpaValue = sgpaInputs[i].value.trim();
+        if (sgpaValue !== '') {
+          const sgpa = parseFloat(sgpaValue);
+          if (!isNaN(sgpa)) {
+            totalSGPA += sgpa;
+          } else {
+            alert('Please enter valid numeric values for SGPA.');
+            return;
+          }
+        } else {
+          alert('Please enter SGPA for all semesters.');
+          return;
+        }
+      }
+
+      const numberOfSemesters = sgpaInputs.length;
+      const cgpa = totalSGPA / numberOfSemesters;
+
+      document.getElementById('cgpaResult').innerHTML = `CGPA: ${cgpa.toFixed(2)}`;
+
+      convertToPercentage(cgpa);
+    }
+
+    function convertToPercentage(cgpa) {
+      const percentage = (cgpa / 10) * 100;
+      document.getElementById('percentageResult').innerHTML = `Percentage: ${percentage.toFixed(2)}%`;
+    }
+  </script>
 </head>
 <body>
-    <p>
-        This is New Repository
-    </p>
+  <h1>CGPA Calculator</h1>
+  <form>
+    <label for="sgpaSem1">Semester 1 SGPA:</label>
+    <input type="number" step="0.01" class="sgpa" id="sgpaSem1"><br><br>
+
+    <label for="sgpaSem2">Semester 2 SGPA:</label>
+    <input type="number" step="0.01" class="sgpa" id="sgpaSem2"><br><br>
+
+    <label for="sgpaSem3">Semester 3 SGPA:</label>
+    <input type="number" step="0.01" class="sgpa" id="sgpaSem3"><br><br>
+
+    <label for="sgpaSem4">Semester 4 SGPA:</label>
+    <input type="number" step="0.01" class="sgpa" id="sgpaSem4"><br><br>
+
+    <button type="button" onclick="calculateCGPA()">Calculate CGPA</button>
+  </form>
+  <div id="result">
+    <p id="cgpaResult"></p>
+    <p id="percentageResult"></p>
+  </div>
 </body>
 </html>
